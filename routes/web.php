@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/users', 'PegawaiController@fetchAll');
+
+
 Route::get('/', function () {
     return view('welcome');
 });

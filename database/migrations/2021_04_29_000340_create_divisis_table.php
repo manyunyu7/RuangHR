@@ -16,8 +16,8 @@ class CreateDivisisTable extends Migration
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
             $table->string('nama_divisi');
-            $table->unsignedBigInteger('lead_divisi');
-            $table->unsignedBigInteger('co_lead_divisi');
+            $table->unsignedBigInteger('lead_divisi')->nullable();
+            $table->unsignedBigInteger('co_lead_divisi')->nullable();
             $table->foreign('lead_divisi')->references('id')->on('pegawai')->onDelete('cascade');
             $table->string('kontak_divisi');
             $table->string('alamat_divisi');
