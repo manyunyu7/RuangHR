@@ -41,12 +41,12 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
 
     //43 Karyawan
-
-
-
-
-
-
+    Route::post('/pegawai/store', 'PegawaiController@store');
+    Route::delete('/pegawai/{id}/delete', 'PegawaiController@delete');
+    Route::any('/pegawai/{id}/detail', 'PegawaiController@fetchByID');
+    Route::any('/pegawai/fetch', 'PegawaiController@fetchAll');
+    Route::post('/pegawai/{id}/update', 'PegawaiController@update');
+    Route::get('/pegawai/search', 'PegawaiController@search');
 
 
 
