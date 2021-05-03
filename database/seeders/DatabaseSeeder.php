@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(TokenSeeder::class);
+        $this->call(DivisiSeeder::class);
+        $this->call(KaryawanSeederSecondary::class);
 
         // \App\Models\User::factory(10)->create();
     }

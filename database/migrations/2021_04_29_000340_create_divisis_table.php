@@ -15,12 +15,14 @@ class CreateDivisisTable extends Migration
     {
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_divisi');
+            $table->string('nama_divisi')->unique();
             $table->unsignedBigInteger('lead_divisi')->nullable();
             $table->unsignedBigInteger('co_lead_divisi')->nullable();
             $table->foreign('lead_divisi')->references('id')->on('pegawai')->onDelete('cascade');
-            $table->string('kontak_divisi');
-            $table->string('alamat_divisi');
+            $table->foreign('co_lead_divisi')->references('id')->on('pegawai')->onDelete('cascade');
+            $table->string('email_divisi')->nullable();
+            $table->string('kontak_divisi')->nullable();
+            $table->string('alamat_divisi')->nullable();
             $table->timestamps();
         });
     }

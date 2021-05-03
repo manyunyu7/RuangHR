@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class PekerjaanController extends Controller
 {
     function store(Request $request){
-
         $rules = [
             "nama_pekerjaan" => "required",
             "gaji" => "required|numeric",
@@ -30,6 +29,7 @@ class PekerjaanController extends Controller
                 'http_response' => 200,
                 'status' => 1,
                 'message' => 'Berhasil Menyimpan Pekerjaan',
+                'pekerjaan' => $object,
             ]);
         }else{
             return response()->json([
@@ -38,6 +38,5 @@ class PekerjaanController extends Controller
                 'message' => 'Gagal menyimpan Pekerjaan',
             ]);
         }
-
     }
 }
