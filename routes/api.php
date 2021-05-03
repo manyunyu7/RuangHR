@@ -32,11 +32,11 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
     //33 Pekerjaan
     Route::post('/pekerjaan/store', 'PekerjaanController@store');
-
-
-
-
-
+    Route::put('/pekerjaan/{id}/update', 'PekerjaanController@update');
+    Route::delete('/pekerjaan/{id}/delete', 'PekerjaanController@delete');
+    Route::any('/pekerjaan/fetch', 'PekerjaanController@fetch');
+    Route::any('/pekerjaan/{id}/detail', 'PekerjaanController@detail');
+    Route::get('/pekerjaan/cari', 'PekerjaanController@cari');
 
 
 
