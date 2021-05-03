@@ -15,7 +15,7 @@ class PekerjaanController extends Controller
 
         $realObject = array();
         foreach ($object as $key) {
-            $realObject["divisi"][] = [
+            $realObject["pegawai"][] = [
                 "id" => $key->id,
                 "nama_pekerjaan" => $key->nama_pekerjaan,
                 "gaji" => $key->gaji,
@@ -49,7 +49,7 @@ class PekerjaanController extends Controller
         }
 
         if ($object) {
-            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Divisi $object->nama_pekerjaan", $realObject);
+            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pekerjaan $object->nama_pekerjaan", $realObject);
         } else {
             return $this->hasFailed(400, false, 0, "Gagal Mendapatkan Data Divisi");
         }
