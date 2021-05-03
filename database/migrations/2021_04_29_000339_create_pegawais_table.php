@@ -19,6 +19,8 @@ class CreatePegawaisTable extends Migration
             $table->string('nama_belakang')->nullable();
             $table->string('email');
             $table->string('no_hp');
+            $table->string('gender');
+            $table->text('alamat');
             $table->string('photo_path')->nullable();
             $table->date('tanggal_masuk');
             $table->date('tanggal_lahir');

@@ -6,6 +6,8 @@ use Illuminate\Support\Str;
 use App\Models\Token;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class ApiTokenController extends Controller
 {
 
@@ -115,6 +117,30 @@ class ApiTokenController extends Controller
                 'status' => 0,
                 'success' => false,
                 'message' => 'Gagal Menghapus Token, Silakan Hubungi Tim IT Divisi HR Untuk Bantuan Teknis',
+            ]);
+        }
+    }
+    /*
+    Menghapus Token Yang Sudah Dibuat
+    */
+    function fetchToken()
+    {
+        $object = Token::all();
+
+        if($object){
+            return response()->json([
+                'http_response' => 200,
+                'status' => 1,
+                'success' => true,
+                'message' => 'Berhasil Fetch Token',
+                'token' => $object,
+            ]);
+        }else{
+            return response()->json([
+                'http_response' => 400,
+                'status' => 0,
+                'success' => false,
+                'message' => 'Gagal Fetch Token',
             ]);
         }
     }

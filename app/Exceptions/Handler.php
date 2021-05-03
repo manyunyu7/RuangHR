@@ -113,7 +113,7 @@ class Handler extends ExceptionHandler
             }
             if ($exception instanceof QueryException) {
                 return response()->json([
-                    'message' => '422 Query Exception',
+                    'message' => "422 Query Exception \n\n, $exception",
                     'http_response' => 422,
                     'status_code' => 0,
                 ], 422);

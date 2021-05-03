@@ -17,9 +17,85 @@ use Illuminate\Support\Facades\Route;
 Route::post('/token/store', 'ApiTokenController@createAPIToken');
 Route::put('/token/{id}/update', 'ApiTokenController@updateToken');
 Route::delete('/token/{id}/delete', 'ApiTokenController@deleteToken');
+Route::any('/token/fetch', 'ApiTokenController@fetchToken');
 
 Route::middleware(['token_ruang_hr'])->group(function () {
+
+    //24 Divisi
+    Route::any('/divisi/fetch', 'DivisiController@fetch');
+    Route::any('/divisi/{id}/detail', 'DivisiController@fetchByID');
+    Route::post('/divisi/store', 'DivisiController@storeDivisi');
+    Route::put('/divisi/{id}/update', 'DivisiController@update');
+    Route::delete('/divisi/{id}/delete', 'DivisiController@delete');
+
+
+
+    //33 Pekerjaan
     Route::post('/pekerjaan/store', 'PekerjaanController@store');
+
+
+
+
+
+
+
+
+    //43 Karyawan
+
+
+
+
+
+
+
+
+
+
+
+
+    //56 Perizinan
+
+
+
+
+
+
+
+
+
+
+
+    //68 kehadiran
+
+
+
+
+
+
+
+
+
+
+
+    //80 Report
+
+
+
+
+
+
+
+
+    //dll
+
+
+
+
+
+
+
+
+
 });
 
 
