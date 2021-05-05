@@ -32,7 +32,7 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
     //33 Pekerjaan
     Route::post('/pekerjaan/store', 'PekerjaanController@store');
-
+    
 
 
 
@@ -54,10 +54,11 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
 
     //56 Perizinan
-
-
-
-
+    Route::post('/perizinan/store', 'PerizinanController@store');
+    Route::get('/perizinan','PerizinanController@index');
+    Route::get('/perizinan/{id}/detail','PerizinanController@show');
+    Route::delete('/perizinan/{id}/delete','PerizinanController@destroy');
+    Route::patch('/perizinan/{id}/update','PerizinanController@update');
 
 
 
