@@ -16,9 +16,22 @@ class PerizinanController extends Controller
      */
     public function index(Request $request)
     {
-        $cari = Perizinan::whereBetween('created_at',[Carbon::parse($request->start_date), Carbon::parse($request->end_date)])->get();
+        $perizinan = Perizinan::whereBetween('created_at',[Carbon::parse($request->start_date), Carbon::parse($request->end_date)])->get();
     
-        return response()->json($cari);
+        if($perizinan){
+            return response()->json([
+                'http_response' => 200,
+                'status' => 1,
+                'message' => 'Berhasil Mendapat data Perizinan',
+                'perizinan' => $perizinan,
+            ]);
+        }else{
+            return response()->json([
+                'http_response' => 400,
+                'status' => 0,
+                'message' => 'Gagal Mendapat data Perizinan',
+            ]);
+        }
     }
 
     /**
@@ -39,10 +52,15 @@ class PerizinanController extends Controller
      */
     public function store(Request $request)
     {
+        $bukti_foto = time().'.'.$request->bukti_foto->exstension();
+
+        $request->bukti_foto->move(public_path('images/upload'), $bukti_foto);
+
+
         $perizinan = Perizinan::insert([
             "id_pegawai" => $request->id_pegawai,
             "alasan" => $request->alasan,
-            "bukti_foto" => $request->bukti_foto,
+            "bukti_foto" => $bukti_foto,
             "status" => $request->status,
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
