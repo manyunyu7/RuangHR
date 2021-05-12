@@ -54,14 +54,14 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
 
     //56 Perizinan
+    Route::post('/perizinan/store', 'PerizinanController@store');
+    Route::get('/perizinan','PerizinanController@index');
+    Route::get('/perizinan/{id}/detail','PerizinanController@show');
+    Route::delete('/perizinan/{id}/delete','PerizinanController@destroy');
+    Route::post('/perizinan/{id}/update','PerizinanController@update');
+    Route::get('/perizinan/fetch', 'PerizinanController@fetchAll');
 
-
-
-
-
-
-
-
+  
 
 
 
