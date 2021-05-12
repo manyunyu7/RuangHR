@@ -133,7 +133,6 @@ class PegawaiController extends Controller
         }
 
 
-
         $checkEmail = Pegawai::where('id', '<>', $id)
             ->where('email', '==', $request->email)
             ->count();
@@ -156,7 +155,6 @@ class PegawaiController extends Controller
                     //Do Nothing
                 }
             }
-
 
             $file = $request->file('photo');
             $extension = $file->getClientOriginalExtension(); // you can also use file name
