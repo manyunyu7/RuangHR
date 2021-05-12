@@ -58,14 +58,12 @@ Route::middleware(['token_ruang_hr'])->group(function () {
     Route::get('/perizinan','PerizinanController@index');
     Route::get('/perizinan/{id}/detail','PerizinanController@show');
     Route::delete('/perizinan/{id}/delete','PerizinanController@destroy');
-    Route::patch('/perizinan/{id}/update','PerizinanController@update');
+    Route::post('/perizinan/{id}/update','PerizinanController@update');
+    Route::get('/perizinan/fetch', 'PerizinanController@fetchAll');
 
 
 
-
-
-
-
+    
     //68 kehadiran
 
 
