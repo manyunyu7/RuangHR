@@ -52,10 +52,9 @@ class PerizinanController extends Controller
      */
     public function store(Request $request)
     {
-        $bukti_foto = time().'.'.$request->bukti_foto->exstension();
+        $bukti_foto = time() . '.' . $request->bukti_foto->extension();
 
-        $request->bukti_foto->move(public_path('images/upload'), $bukti_foto);
-
+        $request->bukti_foto->move(public_path('img/perizinan'), $bukti_foto);
 
         $perizinan = Perizinan::insert([
             "id_pegawai" => $request->id_pegawai,
@@ -130,17 +129,19 @@ class PerizinanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $perizinan = Perizinan::where('id', $id)->update([
-            'alasan' => $request->alasan,
-            'status' => $request->status
-        ]);
+
+            $perizinan = Perizinan::where('id', $id)->update([
+                'alasan' => $request->alasan,
+                'status' => $request->status
+            ]);
+
         
         if($perizinan){
             return response()->json([
                 'http_response' => 200,
                 'status' => 1,
                 'message' => 'Berhasil Edit Perizinan',
-                'perizinan' => $perizinan,
+                'perizinan' => Perizinan::find($id),
             ]);
         }else{
             return response()->json([
@@ -176,5 +177,15 @@ class PerizinanController extends Controller
                 'message' => 'Gagal delete Perizinan',
             ]);
         }
+    }
+
+    public function fetchAll()
+    {
+        return response()->json([
+            'http_response' => 200,
+            'status' => 1,
+            'message' => 'Berhasil menampilkan data perizinan',
+            'perizinan' => Perizinan::all(),
+        ]);
     }
 }
