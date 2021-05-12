@@ -95,6 +95,21 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
 
 
+    
+
+    //Bonus
+    Route::post('/bonus/store', 'BonusController@store');
+    Route::delete('/bonus/{id}/delete', 'BonusController@delete');
+    Route::any('/bonus/{id}/detail', 'BonusController@fetchByID');
+    Route::any('/bonus/fetch', 'BonusController@fetch');
+    Route::post('/bonus/{id}/update', 'BonusController@update');
+    Route::get('/bonus/cari', 'BonusController@cari');
+
+
+
+
+
+
 
 });
 
