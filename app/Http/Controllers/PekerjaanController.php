@@ -13,19 +13,9 @@ class PekerjaanController extends Controller
     {
         $object = Pekerjaan::all();
 
-        $realObject = array();
-        foreach ($object as $key) {
-            $realObject["pegawai"][] = [
-                "id" => $key->id,
-                "nama_pekerjaan" => $key->nama_pekerjaan,
-                "gaji" => $key->gaji,
-                "created_at" => $key->created_at,
-                "updated_at" => $key->updated_at,
-            ];
-        }
 
         if ($object) {
-            return $this->hasSuccessWithData(200, true, 1, "Berhasil Get Data Pekerjaan", $realObject);
+            return $this->hasSuccessWithData(200, true, 1, "Berhasil Get Data Pekerjaan", $object);
         } else {
             return $this->hasFailed(400, false, 0, "Gagal Menambah Pekerjaan");
         }

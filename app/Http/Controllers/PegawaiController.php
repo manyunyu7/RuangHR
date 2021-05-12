@@ -88,13 +88,13 @@ class PegawaiController extends Controller
         $object = Pegawai::find($id);
         $object->delete();
         if ($object) {
-            return $this->hasSuccessW(200, true, 1, "Berhasil Menghapus Pegawai $object->nama_depan $object->nama_belakang");
+            return $this->hasSuccess(200, true, 1, "Berhasil Menghapus Pegawai $object->nama_depan $object->nama_belakang");
         } else {
             return $this->hasFailed(400, false, 0, "Gagal Menghapus Pegawai");
         }
     }
 
-    function update(Request $request,$id)
+    function update(Request $request, $id)
     {
 
         $rules = [
@@ -119,16 +119,27 @@ class PegawaiController extends Controller
 
         $object = Pegawai::find($id);
 
-        if ($object==null) {
+        if ($object == null) {
             return $this->hasFailed(422, false, 0, "Gagal Mengupdate Karyawan, Data Karyawan Tidak Ditemukan");
         }
 
-        $checkEmail = Pegawai::where('id','<>',$id)
-        ->where('email','==',$request->email)
-        ->count();
+        $pekerjaan = Pekerjaan::find($request->id_pekerjaan);
+        if ($pekerjaan == null) {
+            return $this->hasFailed(400, false, 0, "ID Pekerjaan Tidak Ditemukan");
+        }
+        $divisi = Divisi::find($request->id_divisi);
+        if ($divisi == null) {
+            return $this->hasFailed(400, false, 0, "ID Divisi Tidak Ditemukan");
+        }
 
 
-        if ($checkEmail>1) {
+
+        $checkEmail = Pegawai::where('id', '<>', $id)
+            ->where('email', '==', $request->email)
+            ->count();
+
+
+        if ($checkEmail > 1) {
             return $this->hasFailed(422, false, 0, "Gagal Mengupdate Karyawan, Email Sudah Digunakan, Silakan Gunakan Email Lain atau update email pegawai");
         }
 
@@ -137,15 +148,15 @@ class PegawaiController extends Controller
 
         if ($request->hasFile('photo')) {
 
-            $file_path = public_path().$object->photo_path;
+            $file_path = public_path() . $object->photo_path;
             if (file_exists($file_path)) {
-                try{
+                try {
                     unlink($file_path);
-                }catch(Exception $e){
+                } catch (Exception $e) {
                     //Do Nothing
                 }
             }
-            
+
 
             $file = $request->file('photo');
             $extension = $file->getClientOriginalExtension(); // you can also use file name
@@ -172,6 +183,7 @@ class PegawaiController extends Controller
         $object->tanggal_masuk = $request->tanggal_masuk;
         $object->tanggal_lahir = $request->tanggal_lahir;
         $object->id_pekerjaan = $request->id_pekerjaan;
+        $object->id_divisi = $request->id_divisi;
         $object->save();
 
         if ($object) {
@@ -185,48 +197,18 @@ class PegawaiController extends Controller
     {
         $paginate = $request->paginate;
         $pageNumber = $request->page_number;
-        $object = Pegawai::paginate($paginate,['*'],'page',$pageNumber);
+        $object = Pegawai::paginate($paginate, ['*'], 'page', $pageNumber);
 
-        if ($object==null) {
+        if ($object == null) {
             return $this->hasFailed(400, false, 0, "Belum Ada Data Pegawai");
         }
 
         $myResponse = array();
-
-        $realObject = array();
-        foreach ($object as $key) {
-            $gender = "Perempuan";
-
-            $pekerjaan = Pekerjaan::find($key->id_pekerjaan);
-            $divisi = Divisi::find($key->id_divisi);
-
-            if ($key->gender=="1") {
-                $gender="Laki-Laki";
-            }
-
-            $realObject[][] = [
-                "id" => $key->id,
-                "nama_lengkap" => $key->nama_depan." ".$key->nama_belakang,
-                "nama_depan" =>  $key->nama_depan,
-                "nama_belakang" =>  $key->nama_belakang,
-                "no_hp" =>  $key->no_hp,
-                "gender" => $gender,
-                "alamat" =>  $key->alamat,
-                "photo_path" =>  $key->photo_path,
-                "tanggal_masuk" =>  $key->tanggal_masuk,
-                "tanggal_lahir" =>  $key->tanggal_lahir,
-                "pekerjaan" => $pekerjaan,
-                "created_at" =>  $key->created_at,
-                "updated_at" =>  $key->updated_at,
-                "divisi" => $divisi,
-            ];
-        }
-
-        $myResponse["pagination"]=[
-            "per_page"=>$paginate,
-            "page_number"=>$pageNumber,
+        $myResponse["pagination"] = [
+            "per_page" => $paginate,
+            "page_number" => $pageNumber,
         ];
-        $myResponse["pegawai"]=$realObject;
+        $myResponse["pegawai"] = $object;
 
         if ($object) {
             return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pegawai", $myResponse);
@@ -243,37 +225,8 @@ class PegawaiController extends Controller
             return $this->hasFailed(400, false, 0, "ID Pegawai Tidak Ditemukan");
         }
 
-        $realObject = array();
-        foreach ($object as $key) {
-            $gender = "Perempuan";
-
-            $pekerjaan = Pekerjaan::find($object['id_pekerjaan']);
-            $divisi = Divisi::find($object['id_divisi']);
-
-            if ($object['gender']=="1") {
-                $gender="Laki-Laki";
-            }
-            
-            $realObject["data"] = [
-                "id" => $object['id'],
-                "nama_lengkap" => $object['nama_depan']." ".$object['nama_belakang'],
-                "nama_depan" => $object['nama_depan'],
-                "nama_belakang" => $object['nama_belakang'],
-                "no_hp" => $object['no_hp'],
-                "gender" => $gender,
-                "alamat" => $object['alamat'],
-                "photo_path" => $object['photo_path'],
-                "tanggal_masuk" => $object['tanggal_masuk'],
-                "tanggal_lahir" => $object['tanggal_lahir'],
-                "pekerjaan" => $pekerjaan,
-                "divisi" => $divisi,
-                "created_at" => $object['created_at'],
-                "updated_at" => $object['updated_at'],
-            ];
-        }
-
         if ($object) {
-            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pegawai $object->nama_divisi", $realObject);
+            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pegawai $object->nama_divisi", $object);
         } else {
             return $this->hasFailed(400, false, 0, "Gagal Mendapatkan Data Pegawai");
         }
@@ -281,45 +234,16 @@ class PegawaiController extends Controller
 
     function search(Request $request)
     {
-        $search=$request->search;
-        $object = 
-        Pegawai::whereRaw('(nama_depan = ? or nama_belakang like ? or alamat like ? or email like ?)', [$search, '%'.$search.'%','%'.$search.'%','%'.$search.'%'])->get();
+        $search = $request->search;
+        $object =
+            Pegawai::whereRaw('(nama_depan = ? or nama_belakang like ? or alamat like ? or email like ?)', [$search, '%' . $search . '%', '%' . $search . '%', '%' . $search . '%'])->get();
 
         if ($object == null) {
             return $this->hasFailed(400, false, 0, "ID Divisi Tidak Ditemukan");
         }
 
-        $realObject = array();
-        foreach ($object as $key) {
-            $gender = "Perempuan";
-
-            $pekerjaan = Pekerjaan::find($key->id_pekerjaan);
-            $divisi = Divisi::find($key->id_divisi);
-
-            if ($key->gender=="1") {
-                $gender="Laki-Laki";
-            }
-
-            $realObject[][] = [
-                "id" => $key->id,
-                "nama_lengkap" => $key->nama_depan." ".$key->nama_belakang,
-                "nama_depan" =>  $key->nama_depan,
-                "nama_belakang" =>  $key->nama_belakang,
-                "no_hp" =>  $key->no_hp,
-                "gender" => $gender,
-                "alamat" =>  $key->alamat,
-                "photo_path" =>  $key->photo_path,
-                "tanggal_masuk" =>  $key->tanggal_masuk,
-                "tanggal_lahir" =>  $key->tanggal_lahir,
-                "pekerjaan" => $pekerjaan,
-                "created_at" =>  $key->created_at,
-                "updated_at" =>  $key->updated_at,
-                "divisi" => $divisi,
-            ];
-        }
-
         if ($object) {
-            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pegawai", $realObject);
+            return $this->hasSuccessWithData(200, true, 1, "Berhasil Mendapatkan Data Pegawai", $object);
         } else {
             return $this->hasFailed(400, false, 0, "Gagal Mendapatkan Data Divisi");
         }

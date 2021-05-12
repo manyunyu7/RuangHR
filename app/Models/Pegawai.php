@@ -22,8 +22,20 @@ class Pegawai extends Model
         "tanggal_masuk",
         "tanggal_lahir",
         "id_pekerjaan",
+        "id_divisi",
         "created_at",
         "updated_at",
     ];
+
+    protected $appends = ['divisi', 'pekerjaan'];
+
+    function getDivisiAttribute()
+    {
+        return Divisi::find($this->id_divisi);
+    }
+    function getPekerjaanAttribute()
+    {
+        return Pekerjaan::find($this->id_pekerjaan);
+    }
 
 }

@@ -129,17 +129,17 @@ class DivisiController extends Controller
         $this->validate($request, $rules, $customMessages);
 
         if ($this->isKaryawanDoesntExist($request->co_lead_divisi)) {
-            $this->hasFailed(400, false, 0, "ID Karyawan Untuk Co Lead Divisi Tidak Ditemukan di Database HR");
+            return $this->hasFailed(400, false, 0, "ID Karyawan Untuk Co Lead Divisi Tidak Ditemukan di Database HR");
         }
 
         if ($this->isKaryawanDoesntExist($request->lead_divisi)) {
-            $this->hasFailed(400, false, 0, "ID Karyawan Untuk Lead Divisi Tidak Ditemukan di Database HR");
+            return $this->hasFailed(400, false, 0, "ID Karyawan Untuk Lead Divisi Tidak Ditemukan di Database HR");
         }
 
         $object = Divisi::find($id);
 
         if ($object == null) {
-            $this->hasFailed(400, false, 0, "ID Divisi Tidak Ditemukan");
+            return $this->hasFailed(400, false, 0, "ID Divisi Tidak Ditemukan");
         }
 
         $object->nama_divisi = $request->nama_divisi;
