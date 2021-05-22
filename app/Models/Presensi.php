@@ -10,4 +10,10 @@ class Presensi extends Model
     use HasFactory;
     protected $table = "presensi";
 
+    function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class,'id_pegawai');
+    }
+
+
 }
