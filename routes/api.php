@@ -65,10 +65,12 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
     
     //68 kehadiran
-
-
-
-
+    Route::post('/presensi/store', 'PresensiController@store');
+    Route::post('/presensi/{id}/update', 'PresensiController@update');
+    Route::delete('presensi/{id}/delete', 'PresensiController@destroy');
+    Route::get('/presensi/{id}/detail','PresensiController@show');
+    Route::get('/presensi', 'PresensiController@index');
+    Route::get('/presensi/fetch', 'PresensiController@fetchAll');
 
 
 
