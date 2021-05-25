@@ -27,7 +27,7 @@ class Pegawai extends Model
         "updated_at",
     ];
 
-    protected $appends = ['divisi', 'pekerjaan'];
+    protected $appends = ['divisi', 'pekerjaan','report'];
 
     function getDivisiAttribute()
     {
@@ -37,5 +37,11 @@ class Pegawai extends Model
     {
         return Pekerjaan::find($this->id_pekerjaan);
     }
+
+    function getReportAttribute()
+    {
+        return Report::where('id_terlapor','=',$this->id);
+    }
+    
 
 }
