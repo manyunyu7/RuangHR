@@ -1,0 +1,1730 @@
+{
+	"info": {
+		"_postman_id": "30110fda-c3b9-49b3-acfd-c23bc56a32d6",
+		"name": "APIHR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Token Request New",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Divisi Penjualanz",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/token/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"token",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Fetch",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Joko",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/token/fetch",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"token",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/token/6/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"token",
+								"6",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Update Access 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Divisi Penjualan",
+									"type": "text"
+								},
+								{
+									"key": "access_type",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/token/5/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"token",
+								"5",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pegawai",
+			"item": [
+				{
+					"name": "Pegawai Fetch All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "AfMXsYtDX4pGNRFdoYZP6Yeg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/fetch?paginate=5&page_number=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "5"
+								},
+								{
+									"key": "page_number",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegawai Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_depan",
+									"value": "Muhammad",
+									"type": "text"
+								},
+								{
+									"key": "nama_belakang",
+									"value": "Firriezky",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "firriezky@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "no_hp",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2000-08-24",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_masuk",
+									"value": "2020-08-24",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jalan Raya Pademangan 19 , Bogor",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/henry/Downloads/d3bbfdd4-1f81-4e0d-b47e-4df20e2bfb85.jpg"
+								},
+								{
+									"key": "id_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_pekerjaan",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/113/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"113",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegawai Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/54/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"54",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegawai Fetch By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/43/detail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"43",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegawai Create New",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_depan",
+									"value": "Muhammad",
+									"type": "text"
+								},
+								{
+									"key": "nama_belakang",
+									"value": "Firriezky",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "firriezkzzy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "no_hp",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_lahir",
+									"value": "2000-08-24",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_masuk",
+									"value": "2020-08-24",
+									"type": "text"
+								},
+								{
+									"key": "alamat",
+									"value": "Jalan Raya Pademangan 19 , Bekasi",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/D:/#export_film/ic_hand_phone_1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pegawai Search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pegawai/search?search=gmail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pegawai",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "gmail"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Divisi",
+			"item": [
+				{
+					"name": "Divisi Create New",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Solusi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "55",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "56",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								},
+								{
+									"key": "email_divisi",
+									"value": "email@fdvdaa.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/divisi/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"divisi",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Divisi Fetch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/divisi/fetch",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"divisi",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Divisi Fetch By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/divisi/6/detail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"divisi",
+								"6",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Divisi Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Solusi Teknologi Informasizz",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "77",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "78",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 57",
+									"type": "text"
+								},
+								{
+									"key": "email_divisi",
+									"value": "divisiATI@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/divisi/6/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"divisi",
+								"6",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Divisi Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/divisi/6/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"divisi",
+								"6",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pekerjaan",
+			"item": [
+				{
+					"name": "Pekerjaan Create New",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_pekerjaan",
+									"value": "Product Manager",
+									"type": "text"
+								},
+								{
+									"key": "gaji",
+									"value": "120000000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pekerjaan Fetch All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "AfMXsYtDX4pGNRFdoYZP6Yeg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/fetch?paginate=10&page_number=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"fetch"
+							],
+							"query": [
+								{
+									"key": "paginate",
+									"value": "10"
+								},
+								{
+									"key": "page_number",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pekerjaan Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/1/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Pekerjaan By Gaji Range",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/cari?cariAtas=0&cariBawah=9999999999",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"cari"
+							],
+							"query": [
+								{
+									"key": "cariAtas",
+									"value": "0"
+								},
+								{
+									"key": "cariBawah",
+									"value": "9999999999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pekerjaan Fetch By ID Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/1/detail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"1",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pekerjaan Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_pekerjaan",
+									"value": "Product ManagerZZ",
+									"type": "text"
+								},
+								{
+									"key": "gaji",
+									"value": "120000000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/pekerjaan/2/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"pekerjaan",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bonus",
+			"item": [
+				{
+					"name": "Bonus Create New",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_bonus",
+									"value": "Bonus Lembur",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi_bonus",
+									"value": "Bonus Lembur Untuk Karyawan A",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "300000",
+									"type": "text"
+								},
+								{
+									"key": "id_pemberi",
+									"value": "86",
+									"type": "text"
+								},
+								{
+									"key": "id_penerima",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bonus Fetch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_bonus",
+									"value": "Bonus Lembur",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi_bonus",
+									"value": "Bonus Lembur Untuk Karyawan A",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "300000",
+									"type": "text"
+								},
+								{
+									"key": "id_pemberi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_penerima",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/fetch",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bonus Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_bonus",
+									"value": "Bonus Lembur",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi_bonus",
+									"value": "Bonus Lembur Untuk Karyawan A",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "90000",
+									"type": "text"
+								},
+								{
+									"key": "id_pemberi",
+									"value": "86",
+									"type": "text"
+								},
+								{
+									"key": "id_penerima",
+									"value": "8",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/1/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bonus Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/1/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bonus Fetch By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/2/detail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"2",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Bonus By Giver",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nama_divisi",
+									"value": "Divisi Teknologi Informasi",
+									"type": "text"
+								},
+								{
+									"key": "lead_divisi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "co_lead_divisi",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "kontak_divisi",
+									"value": "088223738709",
+									"type": "text"
+								},
+								{
+									"key": "alamat_divisi",
+									"value": "Jalan Pegangsaan Timur No 56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/bonus/cari?id_pemberi=86",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"bonus",
+								"cari"
+							],
+							"query": [
+								{
+									"key": "id_pemberi",
+									"value": "86"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Report Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_pelapor",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "id_terlapor",
+									"value": "111",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/henry/Downloads/loading2.gif"
+								},
+								{
+									"key": "isi_laporan",
+									"value": "Maling Duit Kas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/report/2/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"report",
+								"2",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_pelapor",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "id_terlapor",
+									"value": "111",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/henry/Downloads/loading2.gif"
+								},
+								{
+									"key": "isi_laporan",
+									"value": "Maling Duit Kas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/report/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"report",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Fetch",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "guB5jO7kd3ubFJD9RBbaIDUM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_bonus",
+									"value": "Bonus Lembur",
+									"type": "text"
+								},
+								{
+									"key": "deskripsi_bonus",
+									"value": "Bonus Lembur Untuk Karyawan A",
+									"type": "text"
+								},
+								{
+									"key": "jumlah",
+									"value": "300000",
+									"type": "text"
+								},
+								{
+									"key": "id_pemberi",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id_penerima",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/report/fetch",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"report",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Fetch By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/report/2/detail",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"report",
+								"2",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "hr_auth",
+								"value": "n0l5KB7Eg7gkc8Fc7y0GsXKY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:12000/api/report/1/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "12000",
+							"path": [
+								"api",
+								"report",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
