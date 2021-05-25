@@ -78,12 +78,11 @@ Route::middleware(['token_ruang_hr'])->group(function () {
 
 
     //80 Report
-
-
-
-
-
-
+    Route::post('/report/store', 'ReportController@store');
+    Route::delete('/report/{id}/delete', 'ReportController@delete');
+    Route::any('/report/{id}/detail', 'ReportController@detail');
+    Route::any('/report/fetch', 'ReportController@fetch');
+    Route::post('/report/{id}/update', 'ReportController@update');
 
 
     //dll

@@ -53,14 +53,14 @@ class Handler extends ExceptionHandler
         if ($request->is('api/*')) {
             if ($exception instanceof AuthenticationException) {
                 return response()->json([
-                    'message' => 'Unauthenticated.',
+                    'message' => $exception->getMessage(),
                     'http_response' => 401,
                     'status_code' => 0,
                 ], 401);
             }
             if ($exception instanceof BodyTooLargeException) {
                 return response()->json([
-                    'message' => 'The body is too large',
+                    'message' => $exception->getMessage(),
                     'http_response' => 413,
                     'status_code' => 0,
                 ], 413);
@@ -83,7 +83,7 @@ class Handler extends ExceptionHandler
             }
             if ($exception instanceof NotFoundHttpException) {
                 return response()->json([
-                    'message' => '404 Not Found',
+                    'message' => $exception->getMessage(),
                     'http_response' => 404,
                     'status_code' => 0,
 
@@ -92,30 +92,30 @@ class Handler extends ExceptionHandler
 
             if ($exception instanceof MethodNotAllowedHttpException) {
                 return response()->json([
-                    'message' => '405 Method not allowed',
+                    'message' => $exception->getMessage(),
                     'http_response' => 405,
                     'status_code' => 0,
                 ], 405);
             }
             if ($exception instanceof NotFoundHttpException) {
                 return response()->json([
-                    'message' => '404 Not Found',
+                    'message' => $exception->getMessage(),
                     'http_response' => 404,
                     'status_code' => 0,
                 ], 404);
             }
             if ($exception instanceof ModelNotFoundException) {
                 return response()->json([
-                    'message' => '404 Instance Not Found',
+                    'message' => $exception->getMessage(),
                     'http_response' => 404,
                     'status_code' => 0,
                 ], 404);
             }
             if ($exception instanceof QueryException) {
                 return response()->json([
-                    'message' => "422 Query Exception \n\n, $exception",
                     'http_response' => 422,
                     'status_code' => 0,
+                    'message' => $exception->getMessage(),
                 ], 422);
             }
             return parent::render($request, $exception);
